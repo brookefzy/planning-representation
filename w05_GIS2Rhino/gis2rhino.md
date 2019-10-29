@@ -16,29 +16,29 @@ Open ArcMap and upload the following layers:
 4. Somerville_openSpace
 5. Study_area_05
 
-** The contour layer was derived from a Digital Elevation Model (DEM), which produces clean and continues contour lines. This method is preferred to the overly detailed contour lines available through municipalities' websites, that are usually not continues or closed polygons.
+** The contour layer was derived from a Digital Elevation Model (DEM), which produces clean and continues contour lines. This method is preferred to the overly detailed contour lines available through municipalities' websites, that are usually not continues or closed polygons.<br/>
 
 ## Generate topography polygons
 
 ### 1. Create line feature from the study area box.
 Data Management Tools -> Features -> Feature to Line
 
-Input Features: Study_area_05
-Output Feature Class: ~/Box_Line
+Input Features: Study_area_05  
+Output Feature Class: ~/Box_Line<br/>
 
 ### 2. Merge box line with contours
-Select Contours.
+Select Contours.  
 Data Management Tools -> General -> Append
 
-Input Datasets: Box_Line
-Target Dataset: contours_clip
-Schema Type: NO_TEST (IMPORTANT!!!!)
+Input Datasets: Box_Line  
+Target Dataset: contours_clip  
+Schema Type: NO_TEST (IMPORTANT!!!!)<br/>
 
 ### 3 .Convert merged box/contours into a polygon layer.
 Data Management Tools -> Features -> Feature to Polygon
 
-Input Features: Contours
-Output Feature Class: ~/ContoursPolygon
+Input Features: contours_clip    
+Output Feature Class: ~/ContoursPolygon<br/>
 
 ### 4 . Spatially join polygons with contours to obtain elevations
 - Right-click ContoursPolygon layer in Table of Contents.
@@ -49,9 +49,9 @@ Join data from another layer based on spatial location.
 
 - Select Contours as the layer to be joined.
 - Select "Each polygon will be given a summary..."
-- Check the "Maximum" box.
+- Check the "Maximum" box.<br/>
 
-Output: ~/ContoursPolygon_Elev
+Output: ~/ContoursPolygon_Elev<br/>
 
 Congrats! you've successfully created topography polygons.
 
@@ -74,16 +74,16 @@ Join data from another layer based on spatial location.
 
 - Select ContoursPolygon_Elev as the layer to be joined.
 - Select "Each polygon will be given a summary..."
-- Check the "Minimum" box.
+- Check the "Minimum" box.<br/>
 
-Output: ~/BuildingFootprints_Contours
+Output: ~/BuildingFootprints_Contours<br/>
 
 ### 2. Add elevation to building height.
 Open the attribute table for BuildingFootprints_Contours
 
 - Create new field called "Elevation"
 - Right click the field name and open the field calculator.
-- Elevation = 30 + [Min_Elevat]
+- Elevation = 30 + [Min_Elevat]  
 
 ### 3. Check to make sure all fields you will be exporting to DWG files include an elevation field.
 
@@ -106,7 +106,11 @@ Insert the DWG file into Rhino. We will discuss the difference between Insert an
 ### 3. View and layer management
 - View management: Type "Zoom" in commend window -> Extend, to zoom to the DWG file. 
 
-- Layer management: In Layer Panel, you will see the identical layers in Rhino as ArcGIS. You can manage the layers by 1) assign the current layer; 2) turn on/off the layer; 3) rename; and 4) restyle the layer with different colors and line weight.
+- Layer management: In Layer Panel, you will see the identical layers in Rhino as ArcGIS. You can manage the layers by  
+1) assign the current layer;  
+2) turn on/off the layer;  
+3) rename; and  
+4) restyle the layer with different colors and line weight.<br/>
 
 
 #### Congratulations! Now you've successfully exported GIS data as a DWG file (drawing file) and imported in Rhino for 3D creation. Move forward to the next session on generating topography, extrusion, and render in Rhino.

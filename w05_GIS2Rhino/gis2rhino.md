@@ -21,23 +21,23 @@ Open ArcMap and upload the following layers:
 ## Generate topography polygons
 
 ### 1. Create line feature from the study area box.
-Data Management Tools -> Features -> Feature to Line
+Data Management Tools -> Features -> Feature to Line<br/>
 
-Input Features: Study_area_05
+Input Features: Study_area_05  
 Output Feature Class: ~/Box_Line
 
 ### 2. Merge box line with contours
 Select Contours.
 Data Management Tools -> General -> Append
 
-Input Datasets: Box_Line
-Target Dataset: contours_clip
+Input Datasets: Box_Line  
+Target Dataset: contours_clip  
 Schema Type: NO_TEST (IMPORTANT!!!!)
 
 ### 3 .Convert merged box/contours into a polygon layer.
 Data Management Tools -> Features -> Feature to Polygon
 
-Input Features: Contours
+Input Features: contours_clip  
 Output Feature Class: ~/ContoursPolygon
 
 ### 4 . Spatially join polygons with contours to obtain elevations
@@ -49,7 +49,7 @@ Join data from another layer based on spatial location.
 
 - Select Contours as the layer to be joined.
 - Select "Each polygon will be given a summary..."
-- Check the "Maximum" box.
+- Check the "Maximum" box.<br/>
 
 Output: ~/ContoursPolygon_Elev
 
@@ -76,7 +76,7 @@ Join data from another layer based on spatial location.
 - Select "Each polygon will be given a summary..."
 - Check the "Minimum" box.
 
-Output: ~/BuildingFootprints_Contours
+Output: ~/BuildingFootprints_Contours<br/>
 
 ### 2. Add elevation to building height.
 Open the attribute table for BuildingFootprints_Contours
@@ -106,7 +106,11 @@ Insert the DWG file into Rhino. We will discuss the difference between Insert an
 ### 3. View and layer management
 - View management: Type "Zoom" in commend window -> Extend, to zoom to the DWG file. 
 
-- Layer management: In Layer Panel, you will see the identical layers in Rhino as ArcGIS. You can manage the layers by 1) assign the current layer; 2) turn on/off the layer; 3) rename; and 4) restyle the layer with different colors and line weight.
+- Layer management: In Layer Panel, you will see the identical layers in Rhino as ArcGIS. You can manage the layers by  
+1) assign the current layer;  
+2) turn on/off the layer;  
+3) rename; and  
+4) restyle the layer with different colors and line weight.
 
 
 #### Congratulations! Now you've successfully exported GIS data as a DWG file (drawing file) and imported in Rhino for 3D creation. Move forward to the next session on generating topography, extrusion, and render in Rhino.
